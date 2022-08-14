@@ -49,7 +49,7 @@ namespace TechJobsConsole
             {
                 string aValue = row[column];
 
-                if (aValue.Contains(value))
+                if (aValue.ToLower().Contains(value.ToLower()))
                 {
                     jobs.Add(row);
                 }
@@ -59,34 +59,33 @@ namespace TechJobsConsole
         }
 
         // creates method that will search for a string within each of the columns
-        /*
-         * public static List<Dictionary<string, string>> FindByValue(string column, string value)
+
+        public static List<Dictionary<string, string>> FindByValue(string value)
         {
             // load data, if not already loaded
             LoadData();
 
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
-            foreach (Dictionary<string, string> job in AllJobs)
+            foreach (Dictionary<string, string> row in AllJobs)
             {
-                string newValue = job[value];
-
-                foreach (KeyValuePair<string, string> detail in job)
+                foreach (KeyValuePair<string, string> searchItem in row)
                 {
-                    if (newValue.Contains(value))
+                    if (searchItem.Value.ToLower().Contains(value.ToLower()))
                     {
-                        jobs.Add(job);
+                        if (!jobs.Contains(row))
+                            jobs.Add(row);
                     }
                 }
             }
+
             return jobs;
         }
-        */
 
-        /*
-         * Load and parse data from job_data.csv
-         */
-        private static void LoadData()
+            /*
+             * Load and parse data from job_data.csv
+             */
+            private static void LoadData()
         {
 
             if (IsDataLoaded)
