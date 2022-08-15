@@ -30,7 +30,7 @@ namespace TechJobsConsole
             {
                 string aValue = job[column];
 
-                if (!values.Contains(aValue))
+                if (!values.Contains(aValue.ToLower()))
                 {
                     values.Add(aValue);
                 }

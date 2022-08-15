@@ -128,7 +128,7 @@ namespace TechJobsConsole
                     foreach (KeyValuePair<string, string> value in job)
                     { Console.WriteLine(value.Key + ": " + value.Value); 
                     }
-                    Console.WriteLine("*****");
+                    Console.WriteLine("*****\n");
                 }
             }
             else
